@@ -43,29 +43,51 @@ sendMessageButton.addEventListener('click' , e => {
 
 function appendMessage(message) {
     const messageElement = document.createElement('div');
-    messageElement.setAttribute('class','alert alert-success float-left mx-2 my-2');
-    messageElement.setAttribute('role','alert');
-    messageElement.setAttribute('style','border:solid; width:50%; height: auto; overflow-wrap: break-word; text-align: left;');
-    messageElement.innerText = message;
+    messageElement.setAttribute('class','talk-bubble tri-right border round btm-left-in');
+    messageElement.setAttribute('style','float: left; width: 50%; background-color: greenyellow;');
+
+    const messageElement_innerDiv = document.createElement('div');
+    messageElement_innerDiv.setAttribute('class','talktext');
+
+    const messageElement_text = document.createElement('p');
+    messageElement_text.innerText = message;
+
+    messageElement_innerDiv.append(messageElement_text);
+    messageElement.append(messageElement_innerDiv)
     messageContainer.append(messageElement);
 }
 
 
 function appendOwnMessage(message) {
-    const messageOwnElement = document.createElement('div');
-    messageOwnElement.setAttribute('class','alert alert-primary float-right mx-2 my-2');
-    messageOwnElement.setAttribute('role','alert');
-    messageOwnElement.setAttribute('style','border:solid; width:50%; height: auto; overflow-wrap: break-word; text-align: left;');
-    messageOwnElement.innerText = message;
-    messageContainer.append(messageOwnElement);
+    const ownMessage_outerDiv = document.createElement('div');
+    ownMessage_outerDiv.setAttribute('class' , 'talk-bubble tri-right border round btm-right-in');
+    ownMessage_outerDiv.setAttribute('style' , 'float: right; width: 50%; background-color: lightgreen;');
+
+    const ownMessage_innerDiv = document.createElement('div');
+    ownMessage_innerDiv.setAttribute('class' , 'talktext');
+
+    const ownMessage_text = document.createElement('p');
+    ownMessage_text.innerText = message;
+
+    ownMessage_innerDiv.append(ownMessage_text);
+    ownMessage_outerDiv.append(ownMessage_innerDiv);
+    messageContainer.append(ownMessage_outerDiv);
 }
 
 
 function userStatus(status) {
     const user_status = document.createElement('div');
-    user_status.setAttribute('class','alert alert-warning mx-2 my-2');
-    user_status.setAttribute('role','alert');
-    user_status.setAttribute('style','border:solid; width:50%; height: auto; overflow-wrap: break-word; display: inline-block;');
-    user_status.innerText = status;
+    user_status.setAttribute('class','talk-bubble border');
+    user_status.setAttribute('style','width: 50%; display: inline-block; background-color: yellow;');
+
+    const user_status_innerDiv = document.createElement('div');
+    user_status_innerDiv.setAttribute('class','talktext');
+    user_status_innerDiv.setAttribute('style','text-align: center;');
+
+    const user_status_text = document.createElement('p');
+    user_status_text.innerText = status;
+
+    user_status_innerDiv.append(user_status_text);
+    user_status.append(user_status_innerDiv);
     messageContainer.append(user_status);
 }
