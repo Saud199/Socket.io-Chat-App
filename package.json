@@ -1,0 +1,14 @@
+{
+  "name": "socketio-chatapp",
+  "version": "1.0.0",
+  "description": "Chat App using Socket io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Saud",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  }
+}
