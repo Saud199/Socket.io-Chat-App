@@ -1,7 +1,12 @@
 /* General CSS Setup */
 body{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans;
+    background-image: url('../images/bg7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
   }
   
   /* container */
@@ -129,7 +134,7 @@ body{
     top: auto;
       bottom: -20px;
       border: 12px solid;
-      border-color: greenyellow transparent transparent greenyellow;
+      border-color: greenyellow transparent transparent  greenyellow;
   }
   
   /*Right triangle, placed bottom right side slightly in*/
@@ -153,7 +158,7 @@ body{
       right: 38px;
       bottom: -20px;
       border: 12px solid;
-      border-color: lightgreen lightgreen transparent transparent;
+      border-color: lightblue lightblue transparent transparent;
   }
   /*
       left: -8px;
