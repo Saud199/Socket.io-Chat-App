@@ -1,6 +1,25 @@
-const io = require('socket.io')(3000);
+const express = require("express");
+var cors = require("cors");
 
-console.log("Server Started !!!");
+// Port
+const port = process.env.PORT || 3000;
+
+const app = express();
+
+//  Middleware
+app.use(express.json());
+
+//  To solve CORS related issues
+app.use(cors());
+
+
+// Establishing Socket.io Connection
+const server = require("http").createServer(app);
+
+const io = require('socket.io')(server);
+
+// Start the Server
+server.listen(port, () => console.log(`Server is started on port : ${port}`)); 
 
 const users = [];
 

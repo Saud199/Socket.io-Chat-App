@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000');
+const socket = io('https://socket-iochatapp.herokuapp.com/');
 const messageContainer = document.getElementById('message-container');
 const messageForm = document.getElementById('send-container');
 const messageInput = document.getElementById('message-input');
@@ -44,7 +44,7 @@ sendMessageButton.addEventListener('click' , e => {
 function appendMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.setAttribute('class','talk-bubble tri-right border round btm-left-in animate__animated animate__lightSpeedInLeft');
-    messageElement.setAttribute('style','float: left; width: 50%; background-color: greenyellow;');
+    messageElement.setAttribute('style','float: left; width: 50%; background-color: greenyellow; overflow-wrap: break-word;');
 
     const messageElement_innerDiv = document.createElement('div');
     messageElement_innerDiv.setAttribute('class','talktext');
@@ -55,13 +55,14 @@ function appendMessage(message) {
     messageElement_innerDiv.append(messageElement_text);
     messageElement.append(messageElement_innerDiv)
     messageContainer.append(messageElement);
+
 }
 
 
 function appendOwnMessage(message) {
     const ownMessage_outerDiv = document.createElement('div');
     ownMessage_outerDiv.setAttribute('class' , 'talk-bubble tri-right border round btm-right-in animate__animated animate__lightSpeedInRight');
-    ownMessage_outerDiv.setAttribute('style' , 'float: right; width: 50%; background-color: lightgreen;');
+    ownMessage_outerDiv.setAttribute('style' , 'float: right; width: 50%; background-color: lightgreen; overflow-wrap: break-word;');
 
     const ownMessage_innerDiv = document.createElement('div');
     ownMessage_innerDiv.setAttribute('class' , 'talktext');
@@ -72,13 +73,14 @@ function appendOwnMessage(message) {
     ownMessage_innerDiv.append(ownMessage_text);
     ownMessage_outerDiv.append(ownMessage_innerDiv);
     messageContainer.append(ownMessage_outerDiv);
+
 }
 
 
 function userStatus(status) {
     const user_status = document.createElement('div');
     user_status.setAttribute('class','talk-bubble border animate__animated animate__bounceIn');
-    user_status.setAttribute('style','width: 50%; display: inline-block; background-color: yellow;');
+    user_status.setAttribute('style','width: 50%; display: inline-block; background-color: yellow; overflow-wrap: break-word;');
 
     const user_status_innerDiv = document.createElement('div');
     user_status_innerDiv.setAttribute('class','talktext');
@@ -90,4 +92,5 @@ function userStatus(status) {
     user_status_innerDiv.append(user_status_text);
     user_status.append(user_status_innerDiv);
     messageContainer.append(user_status);
+
 }
